@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Install and configure HAproxy
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+
+# add frontend and backend configuration of both servers
+STR="frontend basic-frontend
+        bind *:80
+        default_backend kirlos-backend
+
+backend kirlos-backend
+        balance roundrobin
+        server 517440-web-01 100.25.19.62:80 check
+        server 517440-web-02 100.26.174.180:80 check"
+echo "$STR" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+# enable init file
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
+# restart the proxy
+sudo service haproxy restart

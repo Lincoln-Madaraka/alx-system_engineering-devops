@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# install nginx on the server
+# update apt and install nginx
+sudo apt-get update
+sudo apt-get -y install nginx
+# replace the default index.html with hello world
+echo "Hello World!" | sudo tee /var/www/html/index.html
+# redirect page redirect_me to youtube
+FILENGINX="/etc/nginx/sites-available/default"
+STR="location /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+LOCATION="location = /404.html {\n\t\troot /;\n\t\tinternal;\n\t}"
+sudo sed -i "/server_name _;/a $LOCATION" "$FILENGINX"
+sudo sed -i "/server_name _;/a $STR" "$FILENGINX"
+# error 404
+sudo sed -i "/server_name _;/a error_page 404 /404.html;" "$FILENGINX"
+# Custom header
+sudo sed -i "/server_name _;/a add_header X-Served-By $HOSTNAME;" "$FILENGINX"
+echo "Ceci n'est pas une page" | sudo tee /404.html
+# restart to apply the changes
+sudo service nginx restart
+
