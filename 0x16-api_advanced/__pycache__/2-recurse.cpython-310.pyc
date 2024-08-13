@@ -1,0 +1,17 @@
+o
+$�:f �@sdZddlZgdfdd�ZdS)zModule for task 2�NCs�d�|�}ddi}d|i}tj|||dd�}|jdkrE|�����d      �}|�ttd
+d
+ �|���|�����d�}|rC|||�S|Sd
+z0Return alyscript/2.0 (by /u/kirlos)�afterF)�headers�params�allow_redirects���datachildrencSs|�d��d�S)Nr�title)�get)�x�r
+                         �P/home/koko/KOKO/ALX/alx-system_engineering-devops/0x16-api_advanced/2-recurse.py<lambda>szrecurse.<locals>.<lambda>N)        �formatrequestsr
+�
+ status_code�json�extend�list�map�recurse�      subreddithot_listr�urlrrresponserr
+                                                                                  r
+rs                                                                                 r
+ 
+�
+▒
+ r)�__doc__rrr
+              r
+               r
+<module>

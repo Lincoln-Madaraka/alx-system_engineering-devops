@@ -1,0 +1,7 @@
+o
+�:f��@s▒dZddlZdd�ZdS)zModule for task 0�NcCsDd�|�}ddi}tj||dd�}|jdkr |���d���Sd  S)
+z8returns the number of subscribers for a given subreddit.z&https://www.reddit.com/r/{}/about.jsonz        yscript/1.0 (by /u/kirlos)F)�headers�allow_redirects���data�
+User-Agentz                                                            subscribersr)�formatrequests�get�
+        status_code�json)�      subreddit�urlrresponse�r�M/home/koko/KOKO/ALX/alx-system_engineering-devops/0x16-api_advanced/0-subs.py�number_of_subscriberss
+�
+r)�__doc__rrrrr<module>s

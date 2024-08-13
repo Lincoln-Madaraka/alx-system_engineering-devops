@@ -1,0 +1,15 @@
+o
+��:f%�@s▒dZddlZdd�ZdS)zModule for task 1�NcCsvd�|�}ddi}tj||dd�}|jdkr5|���d���}td        �D]}t||�d��d
+��q$d
+     Std
+        �d
+          S)
+            z0Return the top 10 hot post for a given subredditz$https://www.reddit.com/r/{}/hot.jsonz      yscript/2.0 (by /u/kirlos)F)�headers�allow_redirects���datachildren�
+�titleN)�formatrequests�get�
+                            status_code�json�range�print)�      subreddit�urlrresponser�i�r�P/home/koko/KOKO/ALX/alx-system_engineering-devops/0x16-api_advanced/1-top_ten.py�top_tens
+ 
+
+▒�
+  r)�__doc__r
+rrrrr<module>s
+
