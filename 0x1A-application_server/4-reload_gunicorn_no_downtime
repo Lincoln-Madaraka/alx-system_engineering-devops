@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# restart gunicorn workers gracefully
+kill -HUB "$(cat /tmp/hbnb.pid)"
